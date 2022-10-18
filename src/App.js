@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import TrackRoadmap from "./components/TrackRoadmap";
+import Footer from "./components/Footer";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [escolheuTrilha, setEscolheuTrilha] = useState(false);
+	const [trilhaEscolhida, setTrilhaEscolhida] = useState("");
+
+	return (
+		<div className="App">
+			<Header />
+			<div className="App-body">
+				<p>Escolha sua trilha:</p>
+				<div>
+					<button onClick={() => {setEscolheuTrilha(true); setTrilhaEscolhida("front-end")}}>Front-end</button>
+					<button onClick={() => {setEscolheuTrilha(true); setTrilhaEscolhida("back-end")}}>Back-end</button>
+					<button onClick={() => {setEscolheuTrilha(true); setTrilhaEscolhida("devops")}}>DevOps</button>
+				</div>
+				{ escolheuTrilha ? <TrackRoadmap trilha={trilhaEscolhida} /> : null }
+				<Footer />
+			</div>
+		</div>
+	);
 }
 
 export default App;

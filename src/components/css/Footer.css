@@ -1,0 +1,13 @@
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    font-size: 0.8rem;
+
+    /* font family for footer */
+    font-family: 'Roboto', sans-serif;
+}
